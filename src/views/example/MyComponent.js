@@ -1,4 +1,6 @@
 import React from 'react';
+import ChildComponent from './ChildComponent';
+import FunctionChildComponent from './FunctionChildComponent';
 
 class MyComponent extends React.Component {
 
@@ -15,7 +17,23 @@ class MyComponent extends React.Component {
         this.state = {
             name: 'Thanhnt10',
             age: 20,
-            message: ""
+            message: "",
+            firstName: "Thanhnt10",
+            lastName: "ABC",
+            jobDes: [
+                {
+                    id: 1,
+                    name: 'teacher'
+                },
+                {
+                    id: 2,
+                    name: 'docter'
+                },
+                {
+                    id: 3,
+                    name: 'develop'
+                }
+            ]
         }
     }
     
@@ -28,6 +46,21 @@ class MyComponent extends React.Component {
         this.setState({
             message: event.target.value
         })
+    }
+    handleChangeFirstName = (event)=> {
+        this.setState({
+            firstName: event.target.value
+        })
+    }
+    handleChangeLastName = (event)=> {
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+    handleSubmit = (event)=> {
+        event.preventDefault();
+        // 
+        console.log(this.state)
     }
 
     render(){
@@ -50,6 +83,23 @@ class MyComponent extends React.Component {
                     <div>List Product</div>
                     <ul>{listItems}</ul>
                 </div>
+                <form>
+                    <label htmlFor="fname">First name: </label><br/>
+                    <input 
+                        type='text'
+                        value={this.state.firstName}
+                        onChange={(event)=>this.handleChangeFirstName(event)}
+                    />
+                    <label htmlFor="fname">Last name: </label><br/>
+                    <input 
+                        type='text'
+                        value={this.state.lastName}
+                        onChange={(event)=>this.handleChangeLastName(event)}
+                    />
+                    <input type='submit' value="Submit" onClick={(event)=>this.handleSubmit(event)} />
+                </form>
+                <ChildComponent name={'Child 1'} jobDes={this.state.jobDes} />
+                <FunctionChildComponent name={'Child 2'} jobDes={this.state.jobDes} />
             </div>
         )
     }
