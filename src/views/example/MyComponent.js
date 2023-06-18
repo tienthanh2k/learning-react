@@ -1,6 +1,7 @@
 import React from 'react';
 import ChildComponent from './ChildComponent';
 import FunctionChildComponent from './FunctionChildComponent';
+import ToggleComponent from './ToggleComponent';
 
 class MyComponent extends React.Component {
 
@@ -100,6 +101,8 @@ class MyComponent extends React.Component {
                 </form>
                 <ChildComponent name={'Child 1'} jobDes={this.state.jobDes} />
                 <FunctionChildComponent name={'Child 2'} jobDes={this.state.jobDes} />
+
+                <ToggleComponent />
             </div>
         )
     }
