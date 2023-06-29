@@ -1,6 +1,7 @@
 import React from 'react';
 import AddJobComponent from './AddJobComponent';
 import ListJobsComponent from './ListJobsComponent';
+import ColorWrapperComponent from '../../hoc/ColorWrapperComponent';
 
 class JobAppComponent extends React.Component {
     constructor(props){
@@ -77,4 +78,4 @@ class JobAppComponent extends React.Component {
     }
 }
 
-export default JobAppComponent;
+export default ColorWrapperComponent(JobAppComponent);
